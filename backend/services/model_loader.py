@@ -1,5 +1,8 @@
 import torch
-from layers.summarizer import PGL_SUM
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from backend.layers.summarizer import PGL_SUM
 from backend.config import DEVICE
 
 def load_model(weights_path):
