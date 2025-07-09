@@ -6,7 +6,10 @@ from torchvision import models, transforms
 from backend.config import DEVICE, FRAME_RATE
 
 # Load GoogLeNet once
-googlenet = models.googlenet(pretrained=True).to(DEVICE).eval()
+from torchvision.models import GoogLeNet_Weights
+weights = GoogLeNet_Weights.DEFAULT
+googlenet = models.googlenet(weights=weights).to(DEVICE).eval()
+
 feature_extractor = torch.nn.Sequential(
     googlenet.conv1,
     googlenet.maxpool1,

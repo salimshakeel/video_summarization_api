@@ -15,5 +15,5 @@ def load_model(weights_path):
         pos_enc="absolute"
     ).to(DEVICE)
     model.load_state_dict(torch.load(weights_path, map_location=DEVICE))
-    model.eval()
+    model.eval
     return model
