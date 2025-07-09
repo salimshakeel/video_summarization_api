@@ -15,7 +15,7 @@ def summarize_video(video: UploadFile = File(...)):
 
     video_path = save_uploaded_file(video, UPLOAD_DIR)
     features, picks = extract_features(video_path)
-    model = load_model("Model/epoch-199.pkl")
+    model = load_model("backend/Model/epoch-199.pkl")
     scores = get_scores(model, features)
     selected = get_selected_indices(scores, picks)
     output_path = f"{OUTPUT_DIR}/summary_{video.filename}"
