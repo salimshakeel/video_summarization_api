@@ -63,3 +63,4 @@ def save_summary_video(video_path, selected_indices, output_path, fps=15):
         print("❌ FFmpeg failed:", e)
         print("⚠️ Using raw video instead.")
         os.rename(raw_output_path, output_path)
+ 
