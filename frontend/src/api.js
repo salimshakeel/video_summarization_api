@@ -1,15 +1,15 @@
 // src/api.js
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:8000'; // FastAPI backend
-
-export const uploadVideo = async (file) => {
+export const uploadVideo = async (videoFile) => {
   const formData = new FormData();
-  formData.append('file', file);
+  formData.append('video', videoFile);
 
-  const res = await axios.post(`${API_BASE}/summarize`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
+  const response = await axios.post('http://localhost:8000/summarize', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
   });
 
-  return res.data;
+  return response.data;
 };
